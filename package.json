@@ -1,0 +1,53 @@
+{
+  "name": "vue3-otp-input-field",
+  "version": "1.0.0",
+  "description": "Customizable OTP input field component for Vue 3",
+  "types": "./dist/index.d.ts",
+  "main": "dist/vue3-otp-input-field.umd.js",
+  "module": "dist/vue3-otp-input-field.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/vue3-otp-input-field.mjs",
+      "require": "./dist/vue3-otp-input-field.umd.js"
+    },
+    "./dist/vue3-otp-input-field.mjs": {
+      "import": "./dist/vue3-otp-input-field.mjs",
+      "require": "./dist/vue3-otp-input-field.umd.js"
+    },
+    "./dist/vue3-otp-input-field.umd.js": {
+      "import": "./dist/vue3-otp-input-field.mjs",
+      "require": "./dist/vue3-otp-input-field.umd.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "serve": "vite preview"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.8"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "OTP",
+    "input",
+    "otp field",
+    "otp input",
+    "vue3 otp input field"
+  ],
+  "license": "MIT",
+  "author": "configtheworld",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@vitejs/plugin-vue": "^4.5.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.6.3",
+    "vue-tsc": "^1.8.22"
+  }
+}
