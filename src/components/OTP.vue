@@ -118,15 +118,15 @@ input {
   text-align: center;
   caret-color: transparent !important;
 }
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Firefox */
-input {
+/* For Firefox */
+input[type="number"] {
   -moz-appearance: textfield;
 }
 </style>
