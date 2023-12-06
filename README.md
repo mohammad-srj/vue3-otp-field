@@ -2,11 +2,15 @@
 
 Customizable OTP input field component for Vue 3 Vite.
 
-> Somehow the Vue does not accept the emit funcitons as node package. Recommended to use with Vite Vue
+> Recommended to use with Vue Vite. Because Vue(without Vite) does not accept the emit funcitons as node package.
 
 ## Preview
 
 ![Gifphy](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTNlaHhmeXBvMXI1ZG5wc3RobmNmNDN6cnEyZW9kNzRjdG1jamV5NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VLcjJZfpPEHEhSbw0k/giphy.gif)
+
+## Demo
+
+[Demo link](https://stackblitz.com/edit/vitejs-vite-6bb2ro?file=src%2FApp.vue)
 
 ## Installation
 
