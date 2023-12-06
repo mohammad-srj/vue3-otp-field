@@ -6,7 +6,7 @@
       :key="index"
       v-model="code[index]"
       :type="type === 'number' ? 'number' : 'text'"
-      pattern="\d*"
+      :pattern="type === 'number' ? '\\d*' : '[a-zA-Z0-9]*'"
       :class="className + ' ' + n"
       :style="
         inputstyle +
@@ -16,7 +16,7 @@
       "
       maxlength="1"
       @input="handleInput"
-      @keypress="isNumber"
+      @keypress="isAllowedChar"
       @keydown.delete="handleDelete"
       @paste="onPaste"
     />
@@ -24,6 +24,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import {
   keysAllowedForMix,
   keysAllowedForNumber,
@@ -36,7 +37,7 @@ const props = defineProps({
   type: { type: String, required: true },
   className: { type: String, required: true },
 });
-const code: string[] = Array(props.fields).fill("");
+let code: string[] = Array(props.fields).fill("");
 let dataFromPaste: string[] | undefined;
 
 const emit = defineEmits(["OTPValueChanged"]);
@@ -50,7 +51,7 @@ function decideSize() {
   }
 }
 
-function isNumber(event: Event) {
+function isAllowedChar(event: Event) {
   (event.currentTarget as HTMLInputElement).value = "";
   const keyPressed: string = (event as KeyboardEvent).key;
 
@@ -85,7 +86,7 @@ function handleInput(event: Event) {
   }
   emit(
     "OTPValueChanged",
-    code.map((n) => n.toUpperCase())
+    code.map((n) => (props.type === "mix" ? n.toUpperCase() : n))
   );
 }
 
@@ -96,15 +97,32 @@ function handleDelete(event: Event) {
     (currentActiveElement.previousElementSibling as HTMLElement)?.focus();
 }
 
+const computeInputPattern = computed(() => {
+  return props.type === "number" ? "\\d*" : "[a-zA-Z0-9]*";
+});
+
+const computeInputType = computed(() => {
+  return props.type === "number" ? "number" : "text";
+});
+
 function onPaste(event: Event) {
   dataFromPaste = (event as ClipboardEvent).clipboardData
     ?.getData("text")
+    .toUpperCase()
     .trim()
     .split("");
 
   if (dataFromPaste) {
-    for (const num of dataFromPaste) {
-      if (!keysAllowedForNumber.includes(num)) event.preventDefault();
+    for (const char of dataFromPaste) {
+      if (props.type === "number") {
+        if (!keysAllowedForNumber.includes(char)) {
+          event.preventDefault();
+        }
+      } else {
+        if (!keysAllowedForMix.includes(char)) {
+          event.preventDefault();
+        }
+      }
     }
   }
 }

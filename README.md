@@ -6,7 +6,7 @@ Customizable OTP input field component for Vue 3 Vite.
 
 ## Preview
 
-![DemoImage](./screenshot.png)
+![Gifphy](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTNlaHhmeXBvMXI1ZG5wc3RobmNmNDN6cnEyZW9kNzRjdG1jamV5NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VLcjJZfpPEHEhSbw0k/giphy.gif)
 
 ## Installation
 
