@@ -21,7 +21,6 @@
       @keypress="isAllowedChar"
       @keydown.delete="handleDelete"
       @paste="onPaste"
-      @focus="scrollToInput(index)"
     />
   </div>
 </template>
@@ -62,18 +61,6 @@ function decideSize() {
   } else {
     return "width: 80px; height: 50px; font-size: 40px;";
   }
-}
-
-function scrollToInput(index: number) {
-  const input = inputs.value[index];
-  if (!input) return;
-  nextTick(() => {
-    input.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-      inline: 'nearest',
-    });
-  });
 }
 
 function isAllowedChar(event: Event) {
