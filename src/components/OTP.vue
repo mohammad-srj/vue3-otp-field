@@ -3,6 +3,7 @@
     <input
       v-for="(n, index) in code"
       :id="'input_' + index"
+      ref="inputs"
       :key="index"
       v-model="code[index]"
       :type="type === 'number' ? 'number' : 'text'"
@@ -24,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import {computed, onMounted, ref} from "vue";
 import {
   keysAllowedForMix,
   keysAllowedForNumber,
@@ -36,11 +37,21 @@ const props = defineProps({
   size: { type: String, required: true },
   type: { type: String, required: true },
   className: { type: String, required: true },
+  autoFocus: { type: Boolean, required: false },
 });
 let code: string[] = Array(props.fields).fill("");
 let dataFromPaste: string[] | undefined;
 
+const inputs = ref<HTMLInputElement[]>([]);
+
 const emit = defineEmits(["OTPValueChanged"]);
+
+onMounted(() => {
+  if (props.autoFocus && inputs.value.length > 0) {
+    inputs.value[0].focus();
+    inputs.value[0].select();
+  }
+});
 function decideSize() {
   if (props.size === "small") {
     return "width: 50px; height: 30px; font-size: 20px;";

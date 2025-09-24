@@ -7,6 +7,7 @@
       inputstyle="width: 80px; height: 50px; font-size: 40px; margin: 3px; border-radius: 5px;"
       type="mix"
       className="mt-5"
+      auto-focus
       @OTPValueChanged="logOtpValue"
     />
     <p>
