@@ -9,8 +9,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: "vue3OtpInputField",
-      fileName: "vue3-otp-input-field",
+      name: "vue3OtpField",
+      fileName: "vue3-otp-field",
     },
     rollupOptions: {
       external: ["vue"],
