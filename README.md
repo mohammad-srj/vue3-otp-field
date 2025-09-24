@@ -48,6 +48,7 @@ function logOtpValue(val = []) {
 }
 const code = ref([]);
 const fieldSize = ref(6);
+const autoFocus = ref(true)
 
 function handleSubmit() {
   console.log(code.value);
@@ -60,6 +61,7 @@ function handleSubmit() {
     :fields="fieldSize"
     inputstyle="width: 80px; height: 50px; font-size: 40px; margin: 3px; border-radius: 5px;"
     type="mix"
+    :auto-focus = autoFocus
     className="example-class-name"
     @OTPValueChanged="logOtpValue"
   />
@@ -77,12 +79,13 @@ function handleSubmit() {
 ## Props parameters
 
 | Prop/Attribute     | Type       | Description                                                                    |
-| ------------------ | ---------- | ------------------------------------------------------------------------------ |
+|--------------------|------------|--------------------------------------------------------------------------------|
 | `size`             | `string`   | Size of the OTP component (`"small"`, `"medium"`, `"large"`)                   |
 | `:fields`          | `number`   | Specify the number of input box                                                |
 | `inputstyle`       | `string`   | Styles applied to each input field (CSS inline styles)                         |
 | `type`             | `string`   | Type of OTP (`"number"`, `"mix"`)                                              |
 | `className`        | `string`   | Additional class name(s) for styling or customization                          |
+| `auto-focus`       | `boolean`  | Auto focuses input on initial page load.                                       |
 | `@OTPValueChanged` | `function` | Event handler for OTP value change (Vue.js event binding). Its a Emit function |
 
 ## Contribute
