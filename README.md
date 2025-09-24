@@ -17,21 +17,13 @@ Customizable OTP input field component for Vue 3 Vite.
 To install:
 
 ```sh
-npm i vue3-otp-input-field
+npm i vue3-otp-field
 ```
 
 OR
 
 ```sh
-yarn add vue3-otp-input-field
-```
-
-OR
-
-Without Build Tools
-
-```sh
-<script src="https://unpkg.com/vue3-otp-input-field"></script>
+yarn add vue3-otp-field
 ```
 
 ## Usage
