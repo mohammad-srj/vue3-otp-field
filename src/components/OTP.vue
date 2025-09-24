@@ -7,6 +7,7 @@
       :key="index"
       v-model="code[index]"
       :type="type === 'number' ? 'number' : 'text'"
+      :inputmode="type === 'number' ? 'numeric' : 'text'"
       :pattern="type === 'number' ? '\\d*' : '[a-zA-Z0-9]*'"
       :class="className + ' ' + n"
       :style="
