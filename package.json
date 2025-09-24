@@ -1,5 +1,5 @@
 {
-  "name": "vue3-otp-input",
+  "name": "@mseraj/vue3-otp-input",
   "version": "1.0.0",
   "description": "Customizable OTP input field component for Vue 3",
   "types": "./dist/index.d.ts",
