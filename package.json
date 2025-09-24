@@ -41,7 +41,7 @@
     "vue3 otp input field"
   ],
   "license": "MIT",
-  "author": "configtheworld",
+  "author": "mohammad-srj",
   "devDependencies": {
     "@types/node": "^20.10.0",
     "@vitejs/plugin-vue": "^4.5.0",
